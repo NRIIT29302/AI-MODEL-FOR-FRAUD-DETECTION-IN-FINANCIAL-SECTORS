@@ -32,8 +32,6 @@ plt.close(fig)
  [US stock market data analysis demo](https://colab.research.google.com/github/rapidsai-community/showcase/blob/main/getting_started_tutorials/cudf_pandas_stocks_demo.ipynb).
 """
 
-pip install numpy pandas scikit-learn
-
 import numpy as np
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -49,7 +47,7 @@ from sklearn.ensemble import RandomForestClassifier, IsolationForest
 from sklearn.metrics import accuracy_score, classification_report
 
 # Load the dataset
-credit_card_data = pd.read_csv('/content/creditcard.csv')
+credit_card_data = pd.read_csv('/content/creditcard.csv.zip')
 
 # Check for possible column name variations:
 # 1. Check if 'class' exists (case-sensitive)
@@ -137,7 +135,6 @@ print("\nLogistic Regression Model Performance:")
 print("Training Accuracy:", accuracy_score(Y_train, y_train_pred_log))
 print("Testing Accuracy:", accuracy_score(Y_test, y_test_pred_log))
 
-!pip install streamlit joblib scikit-learn numpy pandas
 
 import joblib
 # Train Random Forest Model
@@ -178,9 +175,3 @@ balanced_data['is_anomaly'] = balanced_data['is_anomaly'].apply(lambda x: 1 if x
 # Show anomaly detection results
 print("\nAnomaly Detection Results:")
 print(balanced_data[['Amount', 'is_anomaly']].head(10))
-
-!pip install -q streamlit
-
-!wget -q  -o - ipv4.icanhazip.com
-
-!streamlit run app.py & npx localtunnel --port 8501
